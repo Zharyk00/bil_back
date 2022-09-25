@@ -18,8 +18,8 @@ export class LoginController {
     return this.LoginService.getUserById(id);
   }
 
-  @Get()
+  @Get('name')
   getData(@Res() res: Response): any {
-    return res.send(`<h1>Hello node js server</h1>`);
+    return res.send(`<h1>Hello node js server name</h1>`);
   }
 }
