@@ -15,7 +15,7 @@ export class LoginService {
     return usersNumber.save();
   }
 
-  async getUserById(id: number): Promise<Login> {
+  async getUserById(id: string): Promise<Login> {
     return this.LoginModel.findById(id);
   }
 }

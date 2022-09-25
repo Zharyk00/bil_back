@@ -13,12 +13,12 @@ export class LoginController {
     return this.LoginService.loginUser(LoginDto);
   }
 
-  @Get(':id')
-  getAllUser(@Param('id') id: number): Promise<Login> {
-    return this.LoginService.getUserById(id);
-  }
+  // @Get(':id')
+  // getAllUser(@Param('id') id: string): Promise<Login> {
+  //   return this.LoginService.getUserById(id);
+  // }
 
-  @Get('name')
+  @Get('nameAsan')
   getData(@Res() res: Response): any {
     return res.send(`<h1>Hello node js server name</h1>`);
   }
