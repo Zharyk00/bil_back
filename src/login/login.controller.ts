@@ -19,7 +19,7 @@ export class LoginController {
   }
 
   @Get()
-  getData(@Res() res: Response): Object {
+  getData(@Res() res: Response): any {
     return res.send(`<h1>Hello node js server</h1>`);
   }
 }
