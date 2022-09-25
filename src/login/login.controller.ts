@@ -4,7 +4,7 @@ import { LoginDto } from './login-dto.interface';
 import { Login } from './login-schema';
 import { LoginService } from './login.service';
 
-@Controller('login')
+@Controller()
 export class LoginController {
   constructor(private LoginService: LoginService) {}
 
