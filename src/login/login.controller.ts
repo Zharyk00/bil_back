@@ -4,7 +4,7 @@ import { LoginDto } from './login-dto.interface';
 import { Login } from './login-schema';
 import { LoginService } from './login.service';
 
-@Controller('login')
+@Controller('start')
 export class LoginController {
   constructor(private LoginService: LoginService) {}
 
@@ -18,7 +18,7 @@ export class LoginController {
   //   return this.LoginService.getUserById(id);
   // }
 
-  @Get('nameAsan')
+  @Get()
   getData(@Res() res: Response): any {
     return res.send(`<h1>Hello node js server name</h1>`);
   }
