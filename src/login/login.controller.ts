@@ -23,6 +23,11 @@ export class LoginController {
     return this.LoginService.getData();
   }
 
+  @Get(':name')
+  getName(@Param('name') name: string): string {
+    return `<h1>I am ${name}</h1>`;
+  }
+
   @Get()
   getData(@Res() res: Response): any {
     return res.send(`<h1>Hello NestJs</h1>`);
