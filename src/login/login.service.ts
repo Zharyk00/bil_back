@@ -18,4 +18,8 @@ export class LoginService {
   async getUserById(id: string): Promise<Login> {
     return this.LoginModel.findById(id);
   }
+
+  async getData() {
+    return '<h1>Hello from get methode</h1>';
+  }
 }

@@ -4,7 +4,7 @@ import { LoginDto } from './login-dto.interface';
 import { Login } from './login-schema';
 import { LoginService } from './login.service';
 
-@Controller('start')
+@Controller()
 export class LoginController {
   constructor(private LoginService: LoginService) {}
 
@@ -13,13 +13,18 @@ export class LoginController {
     return this.LoginService.loginUser(LoginDto);
   }
 
-  @Get(':id')
-  getAllUser(@Param('id') id: string): Promise<Login> {
-    return this.LoginService.getUserById(id);
+  // @Get(':id')
+  // getAllUser(@Param('id') id: string): Promise<Login> {
+  //   return this.LoginService.getUserById(id);
+  // }
+
+  @Get('get')
+  getSomeData() {
+    return this.LoginService.getData();
   }
 
   @Get()
   getData(@Res() res: Response): any {
-    return res.send(`<h1>Hello node js server name</h1>`);
+    return res.send(`<h1>Hello NestJs</h1>`);
   }
 }
