@@ -13,19 +13,14 @@ export class LoginController {
     return this.LoginService.loginUser(LoginDto);
   }
 
-  // @Get(':id')
-  // getAllUser(@Param('id') id: string): Promise<Login> {
-  //   return this.LoginService.getUserById(id);
-  // }
-
-  @Get('get')
-  getSomeData() {
-    return this.LoginService.getData();
+  @Get(':id')
+  getUserById(@Param('id') id: string): Promise<Login> {
+    return this.LoginService.getUserById(id);
   }
 
-  @Get(':name')
-  getName(@Param('name') name: string): string {
-    return `<h1>I am ${name}</h1>`;
+  @Get('get/users')
+  getSomeData() {
+    return this.LoginService.getData();
   }
 
   @Get()

@@ -6,7 +6,7 @@ export type LoginDocument = Login & Document;
 @Schema()
 export class Login {
   @Prop()
-  phone: number;
+  name: string;
 
   @Prop({
     required: true,
