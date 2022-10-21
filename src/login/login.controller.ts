@@ -1,5 +1,13 @@
-import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
-import { Response } from 'express';
+import {
+  Body,
+  Controller,
+  Get,
+  Header,
+  Param,
+  Post,
+  Response,
+} from '@nestjs/common';
+import { Response as Res } from 'express';
 import { LoginDto } from './login-dto.interface';
 import { Login } from './login-schema';
 import { LoginService } from './login.service';
@@ -13,18 +21,23 @@ export class LoginController {
     return this.LoginService.loginUser(LoginDto);
   }
 
-  @Get(':id')
-  getUserById(@Param('id') id: string): Promise<Login> {
-    return this.LoginService.getUserById(id);
+  // @Get(':id')
+  // getUserById(@Param('id') id: string): Promise<Login> {
+  //   return this.LoginService.getUserById(id);
+  // }
+
+  @Get('users')
+  async getSomeData(@Response() res: Res): Promise<Res> {
+    const data = await this.LoginService.getData();
+
+    return res
+      .set({ 'Access-Control-Expose-Headers': 'X-Total-Count' })
+      .set({ 'X-Total-Count': data.length })
+      .json(data);
   }
 
-  @Get('get/users')
-  getSomeData() {
-    return this.LoginService.getData();
-  }
-
-  @Get()
-  getData(@Res() res: Response): any {
+  @Get('get/page')
+  getData(@Response() res: Res): any {
     return res.send(`<h1>Hello NestJs</h1>`);
   }
 }
